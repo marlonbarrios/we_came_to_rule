@@ -5,15 +5,59 @@ let scrollX;
 let textHeight;
 let videoDuration;
 
-// Ticker text
-let poem = "Voice of Sydney Sweeney from the American Eagle ad campaign. — Image of Sir Francis Galton (1822–1911), the originator of eugenics during the Victorian era.";
+// Ticker text — lyrics (Treaty of Valladolid / imperial voice)
+let poem = [
+    '"We came not to ask, but to rule."',
+    "We are the crown, the sword, the flame,",
+    "We name the stars, we write the frame.",
+    "The world is ours to seize, define—",
+    "By birth, by blood, by right divine.",
+    "",
+    "Gold and souls, we take them both,",
+    "In Christ's own name, we swore an oath.",
+    "To civilize, to purify,",
+    "To raise the cross and watch them die.",
+    "",
+    "This world is ours, by will, by fate,",
+    "We draw the lines, we dominate.",
+    "No need for shame, no need for doubt—",
+    "Our rule is just, our time is now.",
+    "",
+    "They are but children, beasts at best,",
+    "Born to labor, serve, and rest.",
+    "No art, no king, no sacred laws—",
+    "Their nature bent to brutish cause.",
+    "",
+    "We judge, we weigh, we cast the role—",
+    "To guide the body, rule the soul.",
+    "Let Las Casas weep and plead—",
+    "The empire moves, it does not heed.",
+    "",
+    '"Imperium sine fine…"',
+    '("Empire without end…")',
+    '"Dominium naturale…"',
+    '("Natural dominion…")',
+    '"Ex cathedra…"',
+    '("From the throne itself…")',
+    "Let them kneel before the truth.",
+    "",
+    "This world is ours, by steel, by word,",
+    "By cannon's roar and preacher's herd.",
+    "We shape the map, we break the clay—",
+    "All bends to Europe's golden day.",
+    "",
+    "Bow to the center of the world.",
+    "Rome. Castile. The holy fire.",
+    "We wrote the book.",
+    "We own the future."
+].join("  ·  ");
 
 // Invisible hotspot in center of video (opens link on click)
 const HOTSPOT_RADIUS = 80;
-const GALTON_URL = "https://en.wikipedia.org/wiki/Francis_Galton";
+const VALLADOLID_DEBATE_URL = "https://en.wikipedia.org/wiki/Valladolid_debate";
 
 function preload() {
-    video = createVideo('all.mp4', videoLoaded);
+    video = createVideo('all.mov', videoLoaded);
 }
 
 function videoLoaded() {
@@ -62,42 +106,32 @@ function draw() {
         cursor(ARROW);
     }
 
-    // Draw ticker text
-    push();
-    
-    // Black background strip for text
-    noStroke();
-    fill(0, 0, 0, 200);
-    rect(0, textHeight - 25, width, 50);
-    
-    // Add subtle gradient edges
-    for (let i = 0; i < 10; i++) {
-        let alpha = map(i, 0, 10, 100, 0);
-        fill(0, 0, 0, alpha);
-        rect(0, textHeight - 25 - i, width, 1);
-        rect(0, textHeight + 24 + i, width, 1);
-    }
-    
-    // Draw text only if video has started
+    // Draw ticker text only once; when text has fully scrolled off, show only video
     if (videoStarted && videoDuration) {
-        fill(255);
         let textW = textWidth(poem);
         let totalScrollWidth = width + textW;
-        
-        // Calculate position based on video time (20% faster than previous)
-        let progress = (video.time() / videoDuration) * 3.6 / 5;
+        let progress = (video.time() / videoDuration) * 5.76 / 5;
         scrollX = width - (totalScrollWidth * progress);
-        
-        // Draw text
-        text(poem, scrollX, textHeight);
-        
-        // Draw second copy for smooth loop
-        if (scrollX < width/2) {
-            text(poem, scrollX + totalScrollWidth, textHeight);
+        let textStillVisible = scrollX + textW > 0;
+
+        if (textStillVisible) {
+            push();
+            // Black background strip for text (50% transparent)
+            noStroke();
+            fill(0, 0, 0, 128);
+            rect(0, textHeight - 25, width, 50);
+            // Add subtle gradient edges
+            for (let i = 0; i < 10; i++) {
+                let alpha = map(i, 0, 10, 50, 0);
+                fill(0, 0, 0, alpha);
+                rect(0, textHeight - 25 - i, width, 1);
+                rect(0, textHeight + 24 + i, width, 1);
+            }
+            fill(255);
+            text(poem, scrollX, textHeight);
+            pop();
         }
     }
-    
-    pop();
 }
 
 function windowResized() {
@@ -129,6 +163,6 @@ function mousePressed() {
     let centerX = width / 2;
     let centerY = height / 2;
     if (dist(mouseX, mouseY, centerX, centerY) <= HOTSPOT_RADIUS) {
-        window.open(GALTON_URL, "_blank");
+        window.open(VALLADOLID_DEBATE_URL, "_blank");
     }
 }

@@ -1,22 +1,23 @@
-# She Has Good Genes
+# We came To rule
 
-**She Has Good Genes** is a web piece that pairs a video of Sir Francis Galton (1822–1911), the originator of eugenics during the Victorian era, with the voice of Sydney Sweeney from the American Eagle ad campaign—playing on the double meaning of “genes” and “jeans.” Deepfake technology is used for the audiovisual pairing.
+**We came To rule** is a web piece that plays a music video based in cartography presenting Germany in the 15th century with a standing king. The lyrics of the song are combined with discussion of the [Valladolid debate](https://en.wikipedia.org/wiki/Valladolid_debate).
 
 ## Live App
 
-**[View Live →](https://marlonbarrios.github.io/barely_there/)**
+**[View Live →](https://marlonbarrios.github.io/she_has_good_genes/)**
 
 ## Description
 
-Video and scrolling credits move in sync. The ticker attributes the voice (American Eagle / Sydney Sweeney) and the image (Galton). Press **Spacebar** to start or pause; **F** to toggle fullscreen. Minimal layout—no links, no extras.
+Video and scrolling credits move in sync. The ticker describes the piece: music video, cartography, Germany in the 15th century, standing king, and the Valladolid debate. **Click the center of the video** to open the Wikipedia page for the Valladolid debate. Press **Spacebar** to start or pause; **F** to toggle fullscreen. Minimal layout—no other links.
 
 ## Technical Details
 
-- Deepfake technology is used for the audiovisual content
+- Music video: cartography, Germany 15th century, standing king; lyrics combined with Valladolid debate discussion
 - Built with p5.js
-- Video scaled to window height, centered, aspect ratio preserved
+- Video (`.mov`) scaled to window height, centered, aspect ratio preserved
 - Scrolling ticker synced to video time
-- App title “She Has Good Genes” in browser tab
+- App title "We came To rule" in browser tab
+- Center of video is a clickable hotspot linking to [Valladolid debate (Wikipedia)](https://en.wikipedia.org/wiki/Valladolid_debate)
 - **F** to toggle fullscreen (whole browser)
 - Spacebar to play/pause
 
