@@ -1,6 +1,6 @@
-# SheHas good genes
+# She Has Good Genes
 
-**SheHas good genes** is a web piece that pairs a video of Sir Francis Galton (1822–1911), the originator of eugenics during the Victorian era, with the voice of Sydney Sweeney from the American Eagle ad campaign—playing on the double meaning of “genes” and “jeans.”
+**She Has Good Genes** is a web piece that pairs a video of Sir Francis Galton (1822–1911), the originator of eugenics during the Victorian era, with the voice of Sydney Sweeney from the American Eagle ad campaign—playing on the double meaning of “genes” and “jeans.” Deepfake technology is used for the audiovisual pairing.
 
 ## Live App
 
@@ -8,14 +8,16 @@
 
 ## Description
 
-Video and scrolling credits move in sync. The ticker attributes the voice (American Eagle / Sydney Sweeney) and the image (Galton). Press **Spacebar** to start or pause. Minimal layout—no links, no extras.
+Video and scrolling credits move in sync. The ticker attributes the voice (American Eagle / Sydney Sweeney) and the image (Galton). Press **Spacebar** to start or pause; **F** to toggle fullscreen. Minimal layout—no links, no extras.
 
 ## Technical Details
 
+- Deepfake technology is used for the audiovisual content
 - Built with p5.js
 - Video scaled to window height, centered, aspect ratio preserved
 - Scrolling ticker synced to video time
-- App title “SheHas good genes” shown on screen
+- App title “She Has Good Genes” in browser tab
+- **F** to toggle fullscreen (whole browser)
 - Spacebar to play/pause
 
 ## Local Development

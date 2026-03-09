@@ -106,13 +106,20 @@ function windowResized() {
 }
 
 function keyPressed() {
-    if (keyCode === 32) { // spacebar
+    if (keyCode === 32) { // spacebar — play/pause
         if (playing) {
             video.pause();
             playing = false;
         } else {
             video.play();
             playing = true;
+        }
+    }
+    if (key === "f" || key === "F") { // F — toggle fullscreen
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+            document.exitFullscreen();
         }
     }
 }
