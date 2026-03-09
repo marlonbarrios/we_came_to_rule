@@ -61,7 +61,7 @@ function preload() {
 }
 
 function videoLoaded() {
-    video.pause();
+    video.elt.pause();
     videoDuration = video.duration();
     scrollX = width;
     videoStarted = true;
@@ -70,7 +70,7 @@ function videoLoaded() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
     video.hide();
-    video.pause();
+    video.elt.pause();
     playing = false;
     
     // Initialize text scroll
@@ -142,10 +142,11 @@ function windowResized() {
 function keyPressed() {
     if (keyCode === 32) { // spacebar — play/pause
         if (playing) {
-            video.pause();
+            video.elt.pause();
             playing = false;
         } else {
-            video.play();
+            const p = video.elt.play();
+            if (p && typeof p.catch === 'function') p.catch(function() {});
             playing = true;
         }
     }
