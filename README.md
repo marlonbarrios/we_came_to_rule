@@ -4,7 +4,7 @@
 
 ## Live App
 
-**[View Live →](https://marlonbarrios.github.io/she_has_good_genes/)**
+**[View Live →](https://marlonbarrios.github.io/we_came_to_rule/)**
 
 ## Description
 
