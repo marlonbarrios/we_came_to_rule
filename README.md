@@ -2,7 +2,7 @@
 
 **We came To rule** is a web piece that plays a music video based in cartography presenting Germany in the 15th century with a standing king. The lyrics of the song are combined with discussion of the [Valladolid debate](https://en.wikipedia.org/wiki/Valladolid_debate).
 
-## Live App
+## Live App (press space bar to play)
 
 **[View Live →](https://marlonbarrios.github.io/we_came_to_rule/)**
 
